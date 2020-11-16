@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Credit Scoring Expert System</title>
+</head>
+
+<body>
+    <div class="header">Système Expert de Notation de Crédit</div>
+    <div class="container mt-5 mb-4">
+        <div class="card">
+            <div class="card-header"><b>Entrez les détails du client</b></div>
+            <div class="card-body">
+                <form id='details_form'>
+                    <div class="form-group">
+                        <label for="age">Age:</label>
+                        <input type="number" id="age" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="education-level">Niveau d'éducation:</label>
+                        <select class="form-control" id="education-level">
+                            <option data-score='4'>Universitaire ou plus</option>
+                            <option data-score='3'>Secondaire</option>
+                            <option data-score='2'>De base</option>
+                            <option data-score='1'>Primaire</option>
+                            <option data-score='0'>NA</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="locative-situation">Situation locative:</label>
+                        <select class="form-control" id="locative-situation">
+                            <option data-score='2'>Sa propre maison</option>
+                            <option data-score='1'>La maison des parents</option>
+                            <option data-score='0'>Location</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="etat-civil">Etat civil:</label>
+                        <select class="form-control" id="etat-civil">
+                            <option data-score='1'>Marié(e)</option>
+                            <option data-score='0'>Autre</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="personnes-charge">Nombre de personnes à charge:</label>
+                        <select class="form-control" id="personnes-charge">
+                            <option data-score='3'>0 personne</option>
+                            <option data-score='2'>1 personne</option>
+                            <option data-score='1'>2 personnes</option>
+                            <option data-score='0'>3 personnes ou plus</option>
+                        </select>
+                    </div>
+                    <p><b>Occupation:</b></p>
+                    <div class="form-group">
+                        <label for="forme-emploi">Forme d'emploi:</label>
+                        <select class="form-control" id="forme-emploi">
+                            <option data-score='3'>Salarié(e)</option>
+                            <option data-score='2'>Commerçant</option>
+                            <option data-score='1'>Étudiant(e)</option>
+                            <option data-score='0'>Sans emploi</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="revenu">Revenu:</label>
+                        <select class="form-control" id="revenu">
+                            <option data-score='4'>Plus que 100,000</option>
+                            <option data-score='3'>Entre 99,999 et 60,000</option>
+                            <option data-score='2'>Entre 59,999 et 25,000</option>
+                            <option data-score='1'>Entre 24,999 et 10,000</option>
+                            <option data-score='0'>Moins que 9,999</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="duree-occupation">Durée de l’occupation:</label>
+                        <select class="form-control" id="duree-occupation">
+                            <option data-score='2'>Plus que 7 ans</option>
+                            <option data-score='1'>Entre 3 ans et 6 ans</option>
+                            <option data-score='0'>Moins que 3 ans</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="pret-banque">Prêt d'autres banques:</label>
+                        <select class="form-control" id="pret-banque">
+                            <option data-score='2'>Non</option>
+                            <option data-score='0'>Oui</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="existance-historique">Existence d’historique de crédit:</label>
+                        <select class="form-control" id="existance-historique">
+                            <option data-score='2'>Oui</option>
+                            <option data-score='0'>Non</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="valeur-pret">Valeur du prêt:</label>
+                        <select class="form-control" id="valeur-pret">
+                            <option data-score='2'>Base</option>
+                            <option data-score='1'>Moyenne</option>
+                            <option data-score='0'>Elevée</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="durée-pret">Durée du prêt:</label>
+                        <select class="form-control" id="durée-pret">
+                            <option data-score='2'>Plus court que la période restante jusqu'à la pension</option>
+                            <option data-score='0'>Plus longue que la période restante jusqu'à la pension</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="objectif-pret">Objectif du prêt:</label>
+                        <select class="form-control" id="objectif-pret">
+                            <option data-score='1'>Acheter quelque chose</option>
+                            <option data-score='0'>Autres</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="type-garantie">Le type de garantie:</label>
+                        <select class="form-control" id="type-garantie">
+                            <option data-score='2'>Privilège de prêteur de deniers(PPD)</option>
+                            <option data-score='1'>Cautionnement</option>
+                            <option data-score='0'>Nantissement ou hypothèque</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary mb-2">Calculer Score</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
